@@ -1,0 +1,19 @@
+* Sonar
+	Implementer les fonctions
+	Tester
+
+* Line detector
+	Preparer le .h
+	Implementer les fonctions
+	Tester
+
+* Chassis
+	Preparer le .h
+	Implementer les fonctions
+	Tester
+
+* Asservissement
+	Definir le type d'asserv (sale, PID, ...)
+	Preparer le .h
+	Implementer les fonctions
+	Tester
