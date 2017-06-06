@@ -7,16 +7,16 @@ void init_sonar(){//parametrage du compteur.
   TCCR1B = 3;
 }
 
-void distance(){
+int distance(){
   int i = 0;//variable pour le résultat
-  bit_clear(PORTB,PORTB4);
-  bit_set(DDRB,DDB4);//pin capteur en sortie
+  clear_bit(PORTB,PORTB4);
+  set_bit(DDRB,DDB4);//pin capteur en sortie
   //printf("ping\n");
   _delay_us(2);
-  bit_set(PORTB,PORTB4);//debut de l'impulsion
+  set_bit(PORTB,PORTB4);//debut de l'impulsion
   _delay_us(10);
-  bit_clear(PORTB,PORTB4);//fin de l'impultion
-  bit_clear(DDRB,DDB4);//ptin capteur en entrée
+  clear_bit(PORTB,PORTB4);//fin de l'impultion
+  clear_bit(DDRB,DDB4);//pin capteur en entrée
   while(!test_bit(PINB,PINB4));//attente du début de l'impulsion retour
   TCNT1L=0;//on reset le compteur
   TCNT1H=0;

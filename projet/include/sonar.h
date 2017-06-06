@@ -2,7 +2,7 @@
 #define SONAR_H
 
 #include <avr/io.h>
-#include <avr/interrupts.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
 #include "bit_control.h"
 
