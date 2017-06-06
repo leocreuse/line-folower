@@ -15,17 +15,16 @@
 
 #define VEL 96
 #define DIF 20
-#define TIME 750
+#define TIME 500
 
 int main(void){
 	init_chassis();
-
 	forward(VEL);
 
 	while(1){
 	  printf("%d,%d\n",follows_left(),follows_right());
 	  _delay_ms(333);
-	}
+}
 
 	return 0;
 }
