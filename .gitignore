@@ -1,4 +1,4 @@
 *.o
 *.elf
 *.hex
-*.max
+*.map
