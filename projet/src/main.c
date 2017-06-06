@@ -6,20 +6,24 @@
 
 #include "bit_control.h"
 #include "uart.c"
-#include "motor_control.h"
+#include "chassis.h"
 
-
+#define VEL 96
+#define DIF 20
+#define TIME 333
 
 int main(void){
-	init_motors();
+	init_chassis();
 
-	set_lmotor(1,127);
+	forward(VEL);
 
 	while(1){
-	set_lmotor(0,127);
-	_delay_ms(1000);
-	set_lmotor(1,127);
-	_delay_ms(1000);
+	forward(VEL);
+	_delay_ms(TIME);
+	left(VEL,DIF);
+	_delay_ms(TIME);
+	right(VEL,DIF);
+	_delay_ms(TIME);
 	}
 
 	return 0;
