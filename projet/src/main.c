@@ -25,12 +25,7 @@ int main(void){
 
 	while(1){
 	  printf("%d\n",distance());
-	forward(VEL);
-	_delay_ms(TIME);
-	left(VEL,DIF);
-	_delay_ms(TIME);
-	right(VEL,DIF);
-	_delay_ms(TIME);
+	  _delay_ms(333);
 	}
 
 	return 0;
