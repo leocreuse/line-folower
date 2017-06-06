@@ -1,3 +1,6 @@
+#ifndef CHASSIS_H
+#define CHASSIS_H
+
 #include "bit_control.h"
 #include "motor_control.h"
 
@@ -10,3 +13,6 @@ void left(uint8_t velocity, uint8_t differential);
 void right(uint8_t velocity, uint8_t differential);
 
 void stop(void);
+
+
+#endif
