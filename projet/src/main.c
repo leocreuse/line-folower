@@ -7,9 +7,9 @@
 #include "bit_control.h"
 #include "uart.c"
 #include <stdio.h>
-#include "sonar.h"
+//#include "sonar.h"
 #include "chassis.h"
-//#include "line.h"
+#include "line.h"
 
 
 
@@ -19,12 +19,11 @@
 
 int main(void){
 	init_chassis();
-        init_sonar();
 
 	forward(VEL);
 
 	while(1){
-	  printf("%d\n",distance());
+	  printf("%d,%d\n",follows_left(),follows_right());
 	  _delay_ms(333);
 	}
 

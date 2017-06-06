@@ -2,7 +2,7 @@
 # Binary to build
 
 PRG            = main
-OBJ            = main.o motor_control.o chassis.o sonar.o
+OBJ            = main.o motor_control.o chassis.o line.o
 # plop
 ###############################################################################
 # Path to Arduino toolchain
@@ -36,7 +36,7 @@ PROGRAMMER_TYPE= arduino
 ###############################################################################
 # You should not have to change anything below here.
 
-CFLAGS         = -g -Wall -Werror $(OPTIMIZE) -I include/ -mmcu=$(MCU_TARGET) $(DEFS) --std=c99
+CFLAGS         = -g -Wall $(OPTIMIZE) -I include/ -mmcu=$(MCU_TARGET) $(DEFS) --std=c99
 LDFLAGS        = -Wl,-Map,$(PRG).map
 
 all: hex
