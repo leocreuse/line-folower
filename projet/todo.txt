@@ -12,3 +12,5 @@
 	Preparer le .h
 	Implementer les fonctions
 	Tester
+
+* Ajouter le start/stop (pin A7)
