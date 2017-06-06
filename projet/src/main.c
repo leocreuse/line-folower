@@ -7,10 +7,11 @@
 #include "bit_control.h"
 #include "uart.c"
 #include "chassis.h"
+#include "line.h"
 
 #define VEL 96
 #define DIF 20
-#define TIME 333
+#define TIME 750
 
 int main(void){
 	init_chassis();
