@@ -1,4 +1,5 @@
 #include "chassis.h"
+#define DIR 0
 
 void init_chassis(void){
 	init_motors();
@@ -10,21 +11,18 @@ void init_chassis(void){
 */
 
 void forward(uint8_t velocity){
-	bool set_dir = 0;
-	set_lmotor(set_dir, velocity);
-	set_rmotor(~set_dir, velocity);
+	set_lmotor(DIR, velocity);
+	set_rmotor(~DIR, velocity);
 }
 
 void left(uint8_t velocity, uint8_t differential){
-	bool set_dir = 0;
-	set_lmotor(set_dir, velocity+differential);
-	set_rmotor(~set_dir, velocity-differential);
+	set_lmotor( DIR, velocity-differential);
+	set_rmotor(~DIR, velocity+differential);
 }
 
 void right(uint8_t velocity, uint8_t differential){
-        bool set_dir = 0;
-        set_lmotor(set_dir, velocity-differential);
-        set_rmotor(~set_dir, velocity+differential);
+        set_lmotor( DIR, velocity+differential);
+        set_rmotor(~DIR, velocity-differential);
 }
 
 void stop(void){

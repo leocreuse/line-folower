@@ -15,17 +15,18 @@
 
 #define VEL 96
 #define DIF 20
-#define TIME 750
+#define TIME 500
 
 int main(void){
 	init_chassis();
-        init_sonar();
-
-	forward(VEL);
 
 	while(1){
-	  printf("%d\n",distance());
-	  _delay_ms(333);
+		forward(VEL);  
+                _delay_ms(TIME);
+		left(VEL, DIF);
+		_delay_ms(TIME);
+		right(VEL, DIF);
+		_delay_ms(TIME);
 	}
 
 	return 0;
