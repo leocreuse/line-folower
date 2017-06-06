@@ -2,6 +2,7 @@
 
 void init_motors(void){
         set_bit(TCCR0A, COM0A1);                // Set Timer for  Clearing OC01A on compare match
+	set_bit(TCCR0A, COM0B1);
         set_bit(TCCR0A, WGM00);                 // Set PWM mode to Fast PWM
         set_bit(TCCR0A, WGM01);
         set_bit(TCCR0B, CS02);                  // Set clock prescaler

@@ -2,7 +2,7 @@
 # Binary to build
 
 PRG            = main
-OBJ            = main.o motor_control.o
+OBJ            = main.o motor_control.o chassis.o
 # plop
 ###############################################################################
 # Path to Arduino toolchain
