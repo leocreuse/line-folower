@@ -24,6 +24,6 @@ int distance(){
   i= TCNT1; //on récupère le résultat
   _delay_us(20);// augment if parasitic echo exists.
   TCCR1B=3;//on redémare le compteur
-  return i;//résultat en us.
+  return i*4*340/1000;//résultat en mm.
 
 }
