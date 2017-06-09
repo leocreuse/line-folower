@@ -9,11 +9,11 @@ bool follows_right(){
 }
 
 dir get_dir(){
-	if     (~follows_left && ~follows_right)
+	if     (!follows_left() && !follows_right())
 		return STRAIGHT;
-	else if(~follows_left() &&  follows_right())
+	else if(!follows_left() &&  follows_right())
 		return LEFT;
-	else if( follows_left() && ~follows_right())
+	else if( follows_left() && !follows_right())
 		return RIGHT;
 	else
 		return STOP;

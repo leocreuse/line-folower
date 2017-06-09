@@ -14,8 +14,8 @@
 
 //#include "time.c"
 
-#define VEL 96
-#define DIF 20
+#define VEL 128
+#define DIF 127
 #define TIME 500
 
 long last_it=0;
@@ -27,6 +27,7 @@ int main(void){
 	forward(VEL,direction);
 
 	while(1){
+
 		cmd = update_speed(150,distance(),3.);
 		printf("cmd: %d; distance : %d\n",cmd,distance());
 		if(cmd<0){
@@ -40,6 +41,15 @@ int main(void){
 		}
 		_delay_ms(10);
 		forward(cmd,direction);
+
+		dir direction = get_dir();
+		if     (direction == LEFT)
+			left(VEL, DIF);
+		else if(direction == RIGHT)
+			right(VEL, DIF);
+		else if(direction == STRAIGHT)
+			forward(VEL);
+		_delay_ms(10);
 	}
 
 	return 0;
