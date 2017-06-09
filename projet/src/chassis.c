@@ -10,9 +10,9 @@ void init_chassis(void){
 	Velocities are coded as char
 */
 
-void forward(uint8_t velocity){
-	set_lmotor(DIR, velocity);
-	set_rmotor(~DIR, velocity);
+void forward(uint8_t velocity,int dire){
+	set_lmotor(dire, velocity);
+	set_rmotor((1-dire), velocity);
 }
 
 void left(uint8_t velocity, uint8_t differential){

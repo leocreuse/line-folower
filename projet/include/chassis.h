@@ -5,7 +5,7 @@
 
 void init_chassis(void);
 
-void forward(uint8_t velocity);
+void forward(uint8_t velocity,int dire);
 
 void left(uint8_t velocity, uint8_t differential);
 

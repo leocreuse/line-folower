@@ -22,8 +22,8 @@ int distance(){
   while(test_bit(PINB,PINB4));//attente de la fin de l'impultsion retour
   TCCR1B=0;//on arête le capteur
   i= TCNT1; //on récupère le résultat
-  _delay_us(20);// augment if parasitic echo exists.
+  _delay_us(3500);// augment if parasitic echo exists.
   TCCR1B=3;//on redémare le compteur
-  return i*4*340/1000;//résultat en mm.
+  return (i*13)/20;//résultat en mm.
 
 }

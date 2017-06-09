@@ -12,18 +12,34 @@
 //#include "line.h"
 #include "asserv.h"
 
-#include "time.c"
+//#include "time.c"
 
 #define VEL 96
 #define DIF 20
 #define TIME 500
 
+long last_it=0;
+int cmd=0.;
+int direction = 0;
 int main(void){
+	//time_init();
 	init_chassis();
-	forward(VEL);
+	forward(VEL,direction);
 
 	while(1){
-		
+		cmd = update_speed(150,distance(),3.);
+		printf("cmd: %d; distance : %d\n",cmd,distance());
+		if(cmd<0){
+			cmd = -cmd;
+			direction = 1;
+		}
+		else
+			direction = 0;
+		if(cmd >255){
+			cmd = 255;
+		}
+		_delay_ms(10);
+		forward(cmd,direction);
 	}
 
 	return 0;
