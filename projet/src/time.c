@@ -1,5 +1,4 @@
-#include  <avrio.h>
-#include <avr/interrupts.h>
+#include <avrio.h> include <avr/interrupts.h>
 
 TCCR2A = 0;
 TCCR2B = 3;
@@ -9,4 +8,8 @@ sei();
 
 ISR(TIMER2_OVF){
 time++;
+}
+
+long millis(){
+	return time;
 }
