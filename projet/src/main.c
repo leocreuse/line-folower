@@ -22,9 +22,8 @@ int main(void){
 	forward(VEL);
 
 	while(1){
-	  printf("%d,%d\n",follows_left(),follows_right());
-	  _delay_ms(333);
-}
+		
+	}
 
 	return 0;
 }
