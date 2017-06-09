@@ -5,9 +5,7 @@
 #include "bit_control.h"
 #include <stdbool.h>
 
-typedef enum dir dir;
-
-enum {LEFT, STRAIGHT, RIGHT, STOP} dir;
+typedef enum {LEFT, STRAIGHT, RIGHT, STOP} dir;
 
 bool follows_left();
 bool follows_right();

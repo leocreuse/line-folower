@@ -13,8 +13,8 @@
 
 
 
-#define VEL 96
-#define DIF 20
+#define VEL 128
+#define DIF 127
 #define TIME 500
 
 int main(void){
@@ -22,7 +22,14 @@ int main(void){
 	forward(VEL);
 
 	while(1){
-		
+		dir direction = get_dir();
+		if     (direction == LEFT)
+			left(VEL, DIF);
+		else if(direction == RIGHT)
+			right(VEL, DIF);
+		else if(direction == STRAIGHT)
+			forward(VEL);
+		_delay_ms(10);
 	}
 
 	return 0;
