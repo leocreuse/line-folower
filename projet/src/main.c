@@ -64,7 +64,7 @@ int main(void){
 	  }
 	  if(millis() - last_toggle > 5000){
 	    last_toggle = millis();
-	    if(target == 200)
+	    if(target == 250)
 	      target = 200;
 	    else
 	      target = 250;
