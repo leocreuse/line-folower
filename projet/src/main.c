@@ -9,47 +9,66 @@
 #include <stdio.h>
 #include "sonar.h"
 #include "chassis.h"
-//#include "line.h"
+#include "line.h"
 #include "asserv.h"
 
-//#include "time.c"
+#include "time.c"
 
-#define VEL 128
+#define VEL 255
 #define DIF 127
 #define TIME 500
-
+#define MAX_CMD 255
 long last_it=0;
-int cmd=0.;
-int direction = 0;
+long last_toggle = 0;
+int cmd=0;
+int sens = 0;
+dir last;
+int target = 250;
+int dist = 0;
 int main(void){
-	//time_init();
+        time_init();
 	init_chassis();
-	forward(VEL,direction);
+	forward(VEL,sens);
 
 	while(1){
-
-		cmd = update_speed(150,distance(),3.);
-		printf("cmd: %d; distance : %d\n",cmd,distance());
+	  if(millis() - last_it> 5){
+	    last_it = millis();
+	    dist = distance();
+	    cmd = update_speed(target,dist,5.);
+		printf("%ld,%d,%d\n",last_it,dist,target);
 		if(cmd<0){
 			cmd = -cmd;
-			direction = 1;
+			sens = 1;
 		}
 		else
-			direction = 0;
-		if(cmd >255){
-			cmd = 255;
+			sens = 0;
+		if(cmd >MAX_CMD){
+			cmd = MAX_CMD;
 		}
-		_delay_ms(10);
-		forward(cmd,direction);
-
-		dir direction = get_dir();
-		if     (direction == LEFT)
-			left(VEL, DIF);
-		else if(direction == RIGHT)
-			right(VEL, DIF);
-		else if(direction == STRAIGHT)
-			forward(VEL);
-		_delay_ms(10);
+		forward(cmd,sens);
+		/*	if(sens ==1)
+			forward(cmd,sens);
+		else{
+		  dir direction = get_dir();
+		  if (direction == STOP){
+		    direction = last;
+		  }
+      		  if     (direction == LEFT)
+				left(cmd, DIF);
+		  else if(direction == RIGHT)
+				right(cmd, DIF);
+		  else if(direction == STRAIGHT)
+			  forward(cmd,0);
+		  last = direction;
+		*/
+	  }
+	  if(millis() - last_toggle > 5000){
+	    last_toggle = millis();
+	    if(target == 200)
+	      target = 200;
+	    else
+	      target = 250;
+	  }
 	}
 
 	return 0;
