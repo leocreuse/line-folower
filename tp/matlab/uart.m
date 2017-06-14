@@ -52,12 +52,10 @@ clear waitCount;
 % =========================================================================
 % Application
 % =========================================================================
-
-if ((count > 0) && (data == hex2dec('A')))
-    
+while(1)
+    [data, count, msg] = sread(objCom,1,'uint8');
     
 end
-
 closeSerialPort;
 
 
