@@ -18,9 +18,11 @@
 #define DIF 127
 #define TIME 500
 #define MAX_CMD 255
+#define TURN_CMD 128
 long last_it=0;
 long last_toggle = 0;
 int cmd=0;
+int turn_cmd;
 int sens = 0;
 dir last;
 int target = 250;
@@ -46,28 +48,23 @@ int main(void){
 			cmd = MAX_CMD;
 		}
 		forward(cmd,sens);
-		/*	if(sens ==1)
+			if(sens ==1)
 			forward(cmd,sens);
 		else{
 		  dir direction = get_dir();
 		  if (direction == STOP){
 		    direction = last;
 		  }
+		turn_cmd = cmd<TURN_CMD? cmd: TURN_CMD;
       		  if     (direction == LEFT)
-				left(cmd, DIF);
+				left(turn_cmd, turn_cmd/2);
 		  else if(direction == RIGHT)
-				right(cmd, DIF);
+				right(turn_cmd, turn_cmd/2);
 		  else if(direction == STRAIGHT)
 			  forward(cmd,0);
 		  last = direction;
-		*/
+		
 	  }
-	  if(millis() - last_toggle > 5000){
-	    last_toggle = millis();
-	    if(target == 250)
-	      target = 200;
-	    else
-	      target = 250;
 	  }
 	}
 
